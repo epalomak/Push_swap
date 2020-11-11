@@ -6,7 +6,7 @@
 #    By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/05 13:18:04 by epalomak          #+#    #+#              #
-#    Updated: 2020/11/05 13:18:14 by epalomak         ###   ########.fr        #
+#    Updated: 2020/11/11 11:23:55 by epalomak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ LIBFT = ./libft/libft.a
 all: $(NAME)
 
 checker:
-	@make -C libft
+	make -C libft
 	@gcc $(FLAGS) -c $(SRC)
 	@gcc $(OBJ) $(LIBFT) -o checker
 
@@ -41,6 +41,6 @@ clean:
 
 fclean: clean
 	@make -C libft fclean
-	@/bin/rm -f $(NAME)
+	@/bin/rm -f checker push_swap
 
 re: fclean all

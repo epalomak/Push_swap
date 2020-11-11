@@ -6,42 +6,64 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:06:34 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/05 15:17:24 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/11 12:34:27 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include <stdio.h>
 
-int		check_arg(char *src)
+int		check_double(int *nbr, t_ps *ps)
 {
-	int		i;
+	int tmp;
+	int i;
+	int	j;
 
 	i = 0;
-	while(src[i])
+	while (i < (ps->ac - 1))
 	{
-		if (src[i] < '0' && src[i] > '9')
-			return(1);
+		tmp = nbr[i];
+		j = i;
+		while (++j < (ps->ac -1))
+		{
+			if (tmp == nbr[j])
+				return (1);
+		}
 		i++;
 	}
-
 	return(0);
 }
 
-char	**get_numbers(int ac, char **av)
+int		check_n_form(char *src)
 {
-	char	**nbr;
+	int		i;
+	int		dst;
+
+	i = 0;
+	while(src[i] != '\0')
+	{
+		if (!((int)src[i] >= 47 && (int)src[i] <= 57))
+			display_errors();
+		i++;
+	}
+	dst = ft_atoi(src);
+	if(dst > INT_MAX || dst < INT_MIN)
+		display_errors();
+	return(dst);
+}
+
+int		*get_numbers(t_ps *ps, char **av)
+{
+	int		*nbr;
 	int		i;
 	int		j;
 
 	i = 1;
 	j = 0;
-	if (!(nbr = (char**)malloc(sizeof(char*) * ac)))	
-		exit(0);
-	while(ac > i)
-	{
-		if(check_arg(av[i]) != 0)
-			display_errors();
-		nbr[j++] = ft_strdup(av[i++]);
-	}
+	nbr = ft_memalloc(sizeof(int*) * ps->ac);
+	while(ps->ac > i)
+		nbr[j++] = check_n_form(av[i++]);
+	if (check_double(nbr, ps) != 0)
+		display_errors();
 	return (nbr);
 }

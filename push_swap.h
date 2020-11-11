@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:18:36 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/05 15:10:32 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/11 12:06:08 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,18 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+# include <limits.h>
+
+typedef struct	s_ps
+{
+	int			ac;
+	int			*st_a;
+	int			*st_b;
+	struct s_ps	*next;
+	
+}				t_ps;
 
 void	display_errors();
-char	**get_numbers(int ac, char **av);
+int		*get_numbers(t_ps *ps, char **av);
 
 #endif
