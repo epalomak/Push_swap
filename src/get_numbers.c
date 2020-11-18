@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:06:34 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/12 12:06:12 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:14:34 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,14 @@ int		*get_numbers(t_ps *ps, char **av)
 	i = 1;
 	j = 0;
 	nbr = ft_memalloc(sizeof(int*) * ps->ac);
-	while(ps->ac > i)
-		nbr[j++] = check_n_form(av[i++]);
+	while((ps->ac) > i)
+	{
+		nbr[j] = check_n_form(av[i++]);
+		j++;
+	}
 	if (check_double(nbr, ps) != 0)
 		display_errors();
+	ps->size_a = j;
+	ps->size_b = 0;
 	return (nbr);
 }

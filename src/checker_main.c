@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:17:54 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/12 12:15:47 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/18 15:45:02 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ void	read_inst(t_ps *ps)
 	i = 0;
 	while (get_next_line(0, &line) > 0)
 	{
-		if ((ft_strcmp(line, "sa") || ft_strcmp(line, "sb") || 
-		ft_strcmp(line, "ss")) == 0)
+		if (ft_strcmp(line, "sa") == 0 || ft_strcmp(line, "sb") == 0 ||
+		ft_strcmp(line, "sr") == 0)
 			swap(ps, line);
-		if ((ft_strcmp(line, "pa") || ft_strcmp(line, "pb")) == 0)
+		if (ft_strcmp(line, "pa") == 0 || ft_strcmp(line, "pb") == 0)
 			push(ps, line);
-		if ((ft_strcmp(line, "ra") || ft_strcmp(line, "rb") || 
-		ft_strcmp(line, "rr")) == 0)
+		if (ft_strcmp(line, "ra") == 0 || ft_strcmp(line, "rb") == 0 ||
+		ft_strcmp(line, "rr") == 0)
 			rotate(ps, line);
-		if ((ft_strcmp(line, "rra") || ft_strcmp(line, "rrb") || 
-		ft_strcmp(line, "rrr")) == 0)
+		if (ft_strcmp(line, "rra") == 0 || ft_strcmp(line, "rrb") == 0 ||
+		ft_strcmp(line, "rrr") == 0)
 			rev_rotate(ps, line);
 		
 			
@@ -47,7 +47,6 @@ int		main(int ac, char **av)
 {
 	int		i;
 	t_ps	*ps;
-	char	*line;
 
 	if (!(ps = (t_ps*)malloc(sizeof(t_ps))))
 		display_errors();
@@ -58,7 +57,9 @@ int		main(int ac, char **av)
 	{
 		ps->ac = ac;
 		ps->st_a = ft_memalloc(sizeof(int) * ac);
+		ps->st_b = ft_memalloc(sizeof(int) * ac);
 		ps->st_a = get_numbers(ps ,av);
+		print_it(ps);
 		read_inst(ps);
 	}
 	return(0);

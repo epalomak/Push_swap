@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:18:36 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/12 14:41:41 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/18 14:14:13 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct	s_ps
 	int			ac;
 	int			*st_a;
 	int			*st_b;
+	int			size_a;
+	int			size_b;
 	struct s_ps	*next;
 	
 }				t_ps;
@@ -41,5 +43,6 @@ void	rev_rotate(t_ps *ps, char *cmd);
 void	display_errors();
 int		*get_numbers(t_ps *ps, char **av);
 int		get_next_line(const int fd, char **line);
+void	print_it(t_ps *ps);
 
 #endif
