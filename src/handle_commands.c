@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:07:05 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/18 15:46:24 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:54:02 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	swap(t_ps *ps, char *cmd)
 		ft_swap(&ps->st_a[0], &ps->st_a[1]);
 		ft_swap(&ps->st_a[0], &ps->st_a[1]);
 	}
-	print_it(ps);
 }
 
 void	push(t_ps *ps, char *cmd)
@@ -70,7 +69,6 @@ void	push(t_ps *ps, char *cmd)
 		while (i++ < ps->size_a)
 			ps->st_a[i] = ps->st_a[i + 1];
 	}
-	print_it(ps);
 }
 
 void	rotate(t_ps *ps, char *cmd)
@@ -88,13 +86,12 @@ void	rotate(t_ps *ps, char *cmd)
 	}
 	if ((cmd[1] == 'b' || cmd[1] == 'r') && ps->size_b >= 2)
 	{
-		i = 0;
+		i = -1;
 		tmp = ps->st_b[0];
 		while (i++ < (ps->size_b))
 			ps->st_b[i] = ps->st_b[i + 1];
 		ps->st_b[ps->size_b - 1] = tmp;
 	}
-	print_it(ps);
 }
 
 void	rev_rotate(t_ps *ps, char *cmd)
@@ -118,5 +115,4 @@ void	rev_rotate(t_ps *ps, char *cmd)
 			ps->st_b[i] = ps->st_b[i - 1];
 		ps->st_b[0] = tmp;
 	}
-	print_it(ps);
 }

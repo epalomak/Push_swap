@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:18:36 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/18 14:14:13 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:27:02 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	display_errors();
 int		*get_numbers(t_ps *ps, char **av);
 int		get_next_line(const int fd, char **line);
 void	print_it(t_ps *ps);
+void	check_stack(t_ps *ps);
 
 #endif

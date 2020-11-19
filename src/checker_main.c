@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:17:54 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/18 15:45:02 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/19 09:39:00 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int		main(int ac, char **av)
 		ps->st_a = get_numbers(ps ,av);
 		print_it(ps);
 		read_inst(ps);
+		check_stack(ps);
 	}
 	return(0);
 }
