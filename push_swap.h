@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:18:36 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/19 09:27:02 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/25 14:31:18 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ void	push(t_ps *ps, char *cmd);
 void	rotate(t_ps *ps, char *cmd);
 void	rev_rotate(t_ps *ps, char *cmd);
 void	display_errors();
+void	sort(t_ps *ps);
+int		check_stack(t_ps *ps);
 int		*get_numbers(t_ps *ps, char **av);
 int		get_next_line(const int fd, char **line);
-void	print_it(t_ps *ps);
-void	check_stack(t_ps *ps);
+int		highest_elem(t_ps *ps);
+
 
 #endif
