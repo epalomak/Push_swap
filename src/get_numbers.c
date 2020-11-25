@@ -6,12 +6,11 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:06:34 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/18 15:14:34 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/25 14:18:17 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 int		check_double(int *nbr, t_ps *ps)
 {

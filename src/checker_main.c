@@ -6,18 +6,12 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:17:54 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/19 09:39:00 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/25 14:55:02 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <stdio.h>
-
-void	display_errors()
-{
-	ft_putstr_fd("error\n", 1);
-	exit(0);
-}
 
 void	read_inst(t_ps *ps)
 {
@@ -47,22 +41,21 @@ int		main(int ac, char **av)
 {
 	int		i;
 	t_ps	*ps;
+	int		result;
 
-	if (!(ps = (t_ps*)malloc(sizeof(t_ps))))
+	if (!(ps = (t_ps*)malloc(sizeof(t_ps))) || ac <= 1)
 		display_errors();
 	i = 0;
-	if (ac <= 1)
-		display_errors();
+	ps->ac = ac;
+	ps->st_a = ft_memalloc(sizeof(int) * ac);
+	ps->st_b = ft_memalloc(sizeof(int) * ac);
+	ps->st_a = get_numbers(ps ,av);
+	read_inst(ps);
+	result = check_stack(ps);
+	if (result == 1)
+		ft_printf("OK\n");
 	else
-	{
-		ps->ac = ac;
-		ps->st_a = ft_memalloc(sizeof(int) * ac);
-		ps->st_b = ft_memalloc(sizeof(int) * ac);
-		ps->st_a = get_numbers(ps ,av);
-		print_it(ps);
-		read_inst(ps);
-		check_stack(ps);
-	}
+		ft_printf("KO\n");
 	return(0);
 }
 

@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_stack.c                                      :+:      :+:    :+:   */
+/*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 08:57:34 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/25 15:11:47 by epalomak         ###   ########.fr       */
+/*   Created: 2020/11/19 11:29:53 by epalomak          #+#    #+#             */
+/*   Updated: 2020/11/25 14:32:04 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"../push_swap.h"
+#include "../push_swap.h"
 
-int		check_stack(t_ps *ps)
+int		main(int ac, char **av)
 {
-	int i;
-	int j;
+	int		i;
+	t_ps	*ps;
 
+	if (!(ps = (t_ps*)malloc(sizeof(t_ps))))
+		display_errors();
 	i = 0;
-	while(i < ps->size_a)
+	if (ac <= 1)
+		display_errors();
+	else
 	{
-		j = i + 1;
-		while (j < ps->size_a)
-		{
-			if (ps->st_a[i] > ps->st_a[j++])
-				return (0);
-		}
-		i++;
+		ps->ac = ac;
+		ps->st_a = ft_memalloc(sizeof(int) * ac);
+		ps->st_b = ft_memalloc(sizeof(int) * ac);
+		ps->st_a = get_numbers(ps ,av);
+		sort(ps);
 	}
-	return (1);
+	return(0);
 }

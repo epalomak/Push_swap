@@ -6,38 +6,22 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:07:05 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/19 09:54:02 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/25 15:09:27 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
-
-void	print_it(t_ps *ps)
-{
-	int i;
-
-	i = 0;
-	while (i < ps->size_a)
-		printf("%d\n",ps->st_a[i++]);
-}
 
 void	swap(t_ps *ps, char *cmd)
 {
-	int tmp;
-
 	if (cmd[1] == 'a')
-	{
-		tmp = ps->st_a[0];
-		ps->st_a[0] = ps->st_a[1];
-		ps->st_a[1] = tmp;
-	}
+		ft_swap(&ps->st_a[0], &ps->st_a[1]);
 	if (cmd[1] == 'b')
 		ft_swap(&ps->st_b[0], &ps->st_b[1]);
 	if (cmd[1] == 's')
 	{
 		ft_swap(&ps->st_a[0], &ps->st_a[1]);
-		ft_swap(&ps->st_a[0], &ps->st_a[1]);
+		ft_swap(&ps->st_b[0], &ps->st_b[1]);
 	}
 }
 
