@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:18:36 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/25 14:31:18 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/26 17:04:45 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_ps
 	int			*st_b;
 	int			size_a;
 	int			size_b;
+	int			print_it;
 	struct s_ps	*next;
 	
 }				t_ps;
@@ -46,6 +47,7 @@ int		check_stack(t_ps *ps);
 int		*get_numbers(t_ps *ps, char **av);
 int		get_next_line(const int fd, char **line);
 int		highest_elem(t_ps *ps);
+int		lowest_elem(t_ps *ps);
 
 
 #endif

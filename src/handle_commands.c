@@ -6,13 +6,13 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 12:07:05 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/25 15:09:27 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/26 13:59:03 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(t_ps *ps, char *cmd)
+void			swap(t_ps *ps, char *cmd)
 {
 	if (cmd[1] == 'a')
 		ft_swap(&ps->st_a[0], &ps->st_a[1]);
@@ -23,9 +23,11 @@ void	swap(t_ps *ps, char *cmd)
 		ft_swap(&ps->st_a[0], &ps->st_a[1]);
 		ft_swap(&ps->st_b[0], &ps->st_b[1]);
 	}
+	if (ps->print_it == 1)
+		ft_printf("%s\n", cmd);
 }
 
-void	push(t_ps *ps, char *cmd)
+void			push(t_ps *ps, char *cmd)
 {
 	int i;
 
@@ -53,9 +55,11 @@ void	push(t_ps *ps, char *cmd)
 		while (i++ < ps->size_a)
 			ps->st_a[i] = ps->st_a[i + 1];
 	}
+	if (ps->print_it == 1)
+		ft_printf("%s\n", cmd);
 }
 
-void	rotate(t_ps *ps, char *cmd)
+void			rotate(t_ps *ps, char *cmd)
 {
 	int	i;
 	int	tmp;
@@ -76,9 +80,11 @@ void	rotate(t_ps *ps, char *cmd)
 			ps->st_b[i] = ps->st_b[i + 1];
 		ps->st_b[ps->size_b - 1] = tmp;
 	}
+	if (ps->print_it == 1)
+		ft_printf("%s\n", cmd);
 }
 
-void	rev_rotate(t_ps *ps, char *cmd)
+void			rev_rotate(t_ps *ps, char *cmd)
 {
 	int	i;
 	int	tmp;
@@ -99,4 +105,6 @@ void	rev_rotate(t_ps *ps, char *cmd)
 			ps->st_b[i] = ps->st_b[i - 1];
 		ps->st_b[0] = tmp;
 	}
+	if (ps->print_it == 1)
+		ft_printf("%s\n", cmd);
 }

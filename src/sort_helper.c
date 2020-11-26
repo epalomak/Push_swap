@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 13:35:56 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/25 16:27:20 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/26 17:03:50 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,4 @@ int		lowest_elem(t_ps *ps)
 		}		
 	}
 	return (min_elem);
+}

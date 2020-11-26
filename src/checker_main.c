@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:17:54 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/25 14:55:02 by epalomak         ###   ########.fr       */
+/*   Updated: 2020/11/26 13:50:56 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int		main(int ac, char **av)
 		display_errors();
 	i = 0;
 	ps->ac = ac;
+	ps->print_it = 0;
 	ps->st_a = ft_memalloc(sizeof(int) * ac);
 	ps->st_b = ft_memalloc(sizeof(int) * ac);
 	ps->st_a = get_numbers(ps ,av);
