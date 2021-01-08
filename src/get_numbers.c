@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:06:34 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/25 14:18:17 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:35:48 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,11 @@ int		check_n_form(char *src)
 	while(src[i] != '\0')
 	{
 		if (!((int)src[i] >= 47 && (int)src[i] <= 57))
+		{
+			if(src[0] == '-')
+				break ;
 			display_errors();
+		}
 		i++;
 	}
 	dst = ft_atoi(src);
