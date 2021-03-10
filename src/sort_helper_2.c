@@ -1,51 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_stack.c                                      :+:      :+:    :+:   */
+/*   sort_helper_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 08:57:34 by epalomak          #+#    #+#             */
-/*   Updated: 2021/02/24 11:42:39 by epalomak         ###   ########.fr       */
+/*   Created: 2021/01/22 12:43:25 by epalomak          #+#    #+#             */
+/*   Updated: 2021/02/26 17:33:08 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		check_final(t_ps *ps)
+void	rb_rrb_x_times(t_ps *ps, int pos)
 {
-	int i;
-	int j;
-
-	i = -1;
-	if (ps->size_b != 0)
-		return (0);
-	while (++i < ps->size_a - 1)
+	if (pos <= ps->size_b / 2)
 	{
-		j = i + 1;
-		while (j < ps->size_a - 1)
+		while (pos-- > 0)
+			rotate(ps, "rb");
+	}
+	else if (pos >= ps->size_b / 2)
+	{
+		pos++;
+		while (pos <= ps->size_b)
 		{
-			if (ps->st_a[i] > ps->st_a[j++])
-				return (0);
+			rev_rotate(ps, "rrb");
+			pos++;
 		}
 	}
-	return (1);
 }
 
-int		check_stack(t_ps *ps)
+void	ra_rra_x_times(t_ps *ps, int pos)
 {
-	int i;
-	int j;
-
-	i = -1;
-	while (++i < ps->size_a - 1)
+	if (pos <= ps->size_a / 2)
 	{
-		j = i + 1;
-		while (j < ps->size_a - 1)
+		while (pos-- > 0)
+			rotate(ps, "ra");
+	}
+	else if (pos >= ps->size_a / 2)
+	{
+		pos++;
+		while (pos <= ps->size_a)
 		{
-			if (ps->st_a[i] > ps->st_a[j++])
-				return (0);
+			rev_rotate(ps, "rra");
+			pos++;
 		}
 	}
-	return (1);
 }

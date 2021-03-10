@@ -6,12 +6,11 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:17:54 by epalomak          #+#    #+#             */
-/*   Updated: 2021/01/05 17:24:41 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/02/24 11:44:30 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 void	read_inst(t_ps *ps)
 {
@@ -32,8 +31,6 @@ void	read_inst(t_ps *ps)
 		if (ft_strcmp(line, "rra") == 0 || ft_strcmp(line, "rrb") == 0 ||
 		ft_strcmp(line, "rrr") == 0)
 			rev_rotate(ps, line);
-		
-			
 	}
 }
 
@@ -50,14 +47,12 @@ int		main(int ac, char **av)
 	ps->print_it = 0;
 	ps->st_a = ft_memalloc(sizeof(int) * ac);
 	ps->st_b = ft_memalloc(sizeof(int) * ac);
-	ps->st_a = get_numbers(ps ,av);
+	ps->st_a = get_numbers(ps, av);
 	read_inst(ps);
 	result = check_final(ps);
 	if (result == 1)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	return(0);
+	return (0);
 }
-
-/* CTRL-D to stop giving arguments to get_next_line*/
