@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 13:33:09 by epalomak          #+#    #+#             */
-/*   Updated: 2021/02/26 17:30:31 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/06 17:05:17 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,25 @@ static int	*get_lowest(t_ps *ps)
 	return (dest);
 }
 
+static	int	shortest_way(t_ps *ps, int *lowest, int i)
+{
+	int count;
+	int nbr;
+
+	count = 1;
+	nbr = ps->size_a / 4;
+	while (ft_intcmp(ps->st_a[ps->size_a - count], lowest, nbr) == 0)
+	{
+		rev_rotate(ps, "rra");
+		push(ps, "pb");
+		count++;
+		i++;
+	}
+	if (count == 1)
+		rotate(ps, "ra");
+	return (i);
+}
+
 void		sort_500(t_ps *ps)
 {
 	int size;
@@ -62,19 +81,23 @@ void		sort_500(t_ps *ps)
 	int *lowest;
 
 	lowest = get_lowest(ps);
-	size = ps->size_a / 2;
+	size = ps->size_a / 4;
 	i = 0;
-	while (i < (size / 2))
+	while (i < (size))
 	{
-		if (ft_intcmp(ps->st_a[0], lowest, (size / 2)) == 0)
+		if (ft_intcmp(ps->st_a[0], lowest, (size)) == 0)
 		{
 			push(ps, "pb");
 			i++;
 		}
 		else
-			rotate(ps, "ra");
+			//rotate(ps, "ra");
+			i = shortest_way(ps, lowest, i);
+			
 	}
 	free(lowest);
-	if (ps->size_a > 4)
+	if (check_stack(ps) == 0)
+		return ;
+	if (ps->size_a > 3)
 		sort_500(ps);
 }

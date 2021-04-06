@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 14:06:34 by epalomak          #+#    #+#             */
-/*   Updated: 2021/02/25 13:52:26 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/03/17 12:40:57 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ int		check_n_form(char *src)
 		}
 		i++;
 	}
-	dst = ft_atoi(src);
-	if (dst > 2147483647 && dst < -2147483648)
+	if (atol(src) > 2147483647 || atol(src) < -2147483648)
 		display_errors();
+	dst = ft_atoi(src);
 	return (dst);
 }
 
@@ -104,24 +104,24 @@ int		check_double(int *nbr, t_ps *ps)
 
 int		check_n_form(char *src)
 {
-	int		i;
-	int		dst;
+	int			i;
+	int			dst;
 
 	i = 0;
 	while (src[i] != '\0')
 	{
-		if (!((int)src[i] >= 47 && (int)src[i] <= 57))
+		if (!(src[i] >= 47 && src[i] <= 57))
 		{
-			if (src[0] == '-')
+			if (src[0] == '-' && (src[1] >= 47 && src[1] <= 57))
 				break ;
 			display_errors();
 		}
 		i++;
 	}
-	dst = ft_atoi(src);
-	if (dst > INT_MAX || dst < INT_MIN)
+	if (atol(src) > 2147483647 || atol(src) < -2147483648)
 		display_errors();
-	return (dst);
+	dst = ft_atoi(src);
+	return ((int)dst);
 }
 
 int		*get_numbers(t_ps *ps, char **av)

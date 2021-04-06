@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 13:21:47 by epalomak          #+#    #+#             */
-/*   Updated: 2021/02/26 17:28:40 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/03/17 15:27:28 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void			back_to_a(t_ps *ps)
 {
-	int i;
 	int pos;
 
-	i = 0;
 	while (ps->size_b > 0)
 	{
 		pos = highest_elem(ps->st_b, ps->size_b);
-		if (pos != 0)
+		if (pos == 1)
+			swap(ps, "sb");
+		else if (pos != 0)
 			rb_rrb_x_times(ps, pos);
 		if (highest_elem(ps->st_b, ps->size_b) == 0)
 			push(ps, "pa");
@@ -84,6 +84,5 @@ void			sort_250(t_ps *ps)
 	}
 	if (ps->size_a > 4)
 		sort_250(ps);
-	sort_three(ps);
-	back_to_a(ps);
+
 }
