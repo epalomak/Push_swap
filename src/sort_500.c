@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 13:33:09 by epalomak          #+#    #+#             */
-/*   Updated: 2021/04/06 17:05:17 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/20 12:31:03 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ static	int	shortest_way(t_ps *ps, int *lowest, int i)
 		count++;
 		i++;
 	}
+	if (ps->st_b )
 	if (count == 1)
 		rotate(ps, "ra");
 	return (i);
