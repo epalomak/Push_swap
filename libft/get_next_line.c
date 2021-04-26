@@ -6,11 +6,11 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:07:09 by epalomak          #+#    #+#             */
-/*   Updated: 2020/11/11 17:51:07 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/01/07 12:32:19 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 #include <unistd.h>
 #include <stdlib.h>
 

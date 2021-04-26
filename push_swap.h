@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:18:36 by epalomak          #+#    #+#             */
-/*   Updated: 2021/02/26 17:44:01 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/03/17 14:56:11 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <sys/uio.h>
 # include <unistd.h>
 # include <limits.h>
+#include <stdio.h>			// SOS POISTA!
 
 typedef struct	s_ps
 {

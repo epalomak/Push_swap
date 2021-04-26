@@ -6,12 +6,15 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 13:00:48 by epalomak          #+#    #+#             */
-/*   Updated: 2020/09/29 15:27:42 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/03/15 22:16:32 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# define BUFF_SIZE 42
+# define MAX_FD 4864
 
 # include <string.h>
 # include "printf/headers.h"
@@ -24,6 +27,7 @@ typedef	struct		s_list
 }					t_list;
 
 int					ft_atoi(const char *str);
+long				atol(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);
@@ -86,4 +90,6 @@ int					ft_count(const char *s, char c);
 void				ft_rev_print(char *s);
 char				*ft_strndup(const char *s, size_t n);
 int					ft_isspace(int c);
+int					get_next_line(const int fd, char **line);
+
 #endif

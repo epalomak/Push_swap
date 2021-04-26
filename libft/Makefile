@@ -6,7 +6,7 @@
 #    By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/22 14:07:01 by epalomak          #+#    #+#              #
-#    Updated: 2020/09/29 15:14:09 by epalomak         ###   ########.fr        #
+#    Updated: 2021/03/15 21:27:16 by epalomak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c ft_memcmp.c \
 ft_memalloc.c ft_memdel.c ft_strnew.c ft_strdel.c ft_strmap.c ft_strmapi.c \
 ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_strlcat.c ft_itoa.c \
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
-ft_swap.c ft_count.c ft_rev_print.c ft_strndup.c ft_isspace.c 
+ft_swap.c ft_count.c ft_rev_print.c ft_strndup.c ft_isspace.c get_next_line.c \
+ft_atol.c
 
 OBJ = ft_atoi.o ft_isalnum.o ft_isalpha.o ft_isascii.o	ft_isdigit.o \
 ft_isprint.o ft_putchar.o ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o \
@@ -34,7 +35,8 @@ ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o ft_memcmp.o \
 ft_memalloc.o ft_memdel.o ft_strnew.o ft_strdel.o ft_strmap.o ft_strmapi.o \
 ft_strsub.o ft_strjoin.o ft_strtrim.o ft_strsplit.o ft_strlcat.o ft_itoa.o \
 ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o \
-ft_swap.o ft_count.o ft_rev_print.o ft_strndup.o ft_isspace.o
+ft_swap.o ft_count.o ft_rev_print.o ft_strndup.o ft_isspace.o get_next_line.o \
+ft_atol.o
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -43,18 +45,18 @@ PRINTF = printf/libftprintf.a
 all: $(NAME)
 
 $(NAME):
-	make -C printf
-	cp $(PRINTF) $(NAME)
+	@make -C printf
+	@cp $(PRINTF) $(NAME)
 	@gcc -c $(FLAGS) $(SRC) 
 	@ar rc $(NAME) $(OBJ)
 	@echo "library created" 
 
 clean:
-	make -C printf clean
+	@make -C printf clean
 	@/bin/rm -f $(OBJ)
 
 fclean: clean
-	make -C printf fclean
+	@make -C printf fclean
 	@/bin/rm -f $(NAME)
 
 re: fclean all
