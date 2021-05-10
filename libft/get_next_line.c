@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 14:07:09 by epalomak          #+#    #+#             */
-/*   Updated: 2021/01/07 12:32:19 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/05/07 19:15:49 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,21 @@ static	int	ft_line(char **src, char **line)
 	return (1);
 }
 
-int			get_next_line(const int fd, char **line)
+int	get_next_line(const int fd, char **line)
 {
 	int			ret;
 	char		buf[BUFF_SIZE + 1];
 	static char	*str[MAX_FD];
 	char		*tmp;
 
-	if (!line || fd < 0 || fd > MAX_FD)
+	if (!line || fd < 0 || read(fd, buf, 0) < 0|| fd > MAX_FD)
 		return (-1);
 	if (str[fd] == NULL)
-		if (!(str[fd] = ft_strnew(0)))
-			return (-1);
-	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+		str[fd] = ft_strnew(0);
+	ret = 1;
+	while (ret > 0)
 	{
+		ret = read(fd, buf, BUFF_SIZE);
 		buf[ret] = '\0';
 		tmp = ft_strjoin(str[fd], buf);
 		free(str[fd]);

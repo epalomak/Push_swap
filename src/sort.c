@@ -6,12 +6,11 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:40:38 by epalomak          #+#    #+#             */
-/*   Updated: 2021/03/17 15:56:17 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/29 16:10:04 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include <stdio.h>
 
 void	sort_three(t_ps *ps)
 {
@@ -26,29 +25,22 @@ void	sort_three(t_ps *ps)
 		swap(ps, "sa");
 }
 
-void	sort_ten(t_ps *ps)
+void	sort_five(t_ps *ps)
 {
 	while (ps->size_a > 3)
 	{
-		while (lowest_elem(ps->st_a, ps->size_a) == 0 && ps->size_a > 3)
+		if (lowest_elem(ps->st_a, ps->size_a) == 0 && ps->size_a > 3)
 			push(ps, "pb");
-		if (lowest_elem(ps->st_a, ps->size_a) == (ps->size_a - 1) &&
-		ps->size_a != 3)
-			rev_rotate(ps, "rra");
-		else if (lowest_elem(ps->st_a, ps->size_a) == 1 && ps->size_a != 3)
+		else if (lowest_elem(ps->st_a, ps->size_a) == ps->size_a - 1)
 		{
-			swap(ps, "sa");
-			if (check_stack(ps) == 0)
-				return ;
+			rev_rotate(ps, "rra");
+			push(ps, "pb");
 		}
-		else if (ps->size_a != 3)
+		else
 			rotate(ps, "ra");
 	}
-	if (check_stack(ps) == 0)
-		return ;
 	sort_three(ps);
-	while (ps->size_b > 0)
-		push(ps, "pa");
+	back_to_a(ps);
 }
 
 void	sort(t_ps *ps)
@@ -65,16 +57,13 @@ void	sort(t_ps *ps)
 	}
 	if (ps->size_a <= 3)
 		return (sort_three(ps));
-	else if (ps->size_a <= 10)
-		return (sort_ten(ps));
-	else if (ps->size_a <= 505)
+	else if (ps->size_a <= 5)
+		return (sort_five(ps));
+	else
 	{
-		sort_500(ps);
+		sort_all(ps);
 		if (ps->size_a <= 3)
 			sort_three(ps);
 		back_to_a(ps);
 	}
-//	int i = -1;
-//	while (++i < ps->size_a)
-//		printf("%d\n", ps->st_a[i]);
 }

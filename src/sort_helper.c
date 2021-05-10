@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 13:35:56 by epalomak          #+#    #+#             */
-/*   Updated: 2021/03/01 16:44:02 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/29 16:11:10 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,38 @@ int		lowest_elem(int *stack, int stack_size)
 	return (min_elem);
 }
 
-int		average_value(t_ps *ps)
+void	rb_rrb_x_times(t_ps *ps, int pos)
 {
-	int		i;
-	long	value;
-
-	i = 0;
-	value = 0;
-	while (i <= ps->size_a)
+	if (pos <= ps->size_b / 2)
 	{
-		value += ps->st_a[i];
-		i++;
+		while (pos-- > 0)
+			rotate(ps, "rb");
 	}
-	return ((value / ps->size_a + 1));
+	else if (pos >= ps->size_b / 2)
+	{
+		pos++;
+		while (pos <= ps->size_b)
+		{
+			rev_rotate(ps, "rrb");
+			pos++;
+		}
+	}
+}
+
+void	back_to_a(t_ps *ps)
+{
+	int pos;
+
+	while (ps->size_b > 0)
+	{
+		pos = highest_elem(ps->st_b, ps->size_b);
+		if (pos == 1)
+			swap(ps, "sb");
+		else if (pos != 0)
+			rb_rrb_x_times(ps, pos);
+		if (highest_elem(ps->st_b, ps->size_b) == 0)
+			push(ps, "pa");
+		if (ps->st_a[0] > ps->st_a[1])
+			swap(ps, "sa");
+	}
 }

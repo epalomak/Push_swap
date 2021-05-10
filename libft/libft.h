@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/17 13:00:48 by epalomak          #+#    #+#             */
-/*   Updated: 2021/03/15 22:16:32 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/28 17:26:30 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef	struct		s_list
 }					t_list;
 
 int					ft_atoi(const char *str);
-long				atol(const char *str);
+long				ft_atol(const char *str);
 void				ft_bzero(void *s, size_t n);
 int					ft_isalnum(int c);
 int					ft_isalpha(int c);

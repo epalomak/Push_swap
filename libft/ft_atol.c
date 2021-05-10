@@ -6,11 +6,11 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 22:10:26 by epalomak          #+#    #+#             */
-/*   Updated: 2021/03/15 22:16:23 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/28 17:21:34 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	atol(const char *str)
+long	ft_atol(const char *str)
 {
 	int		i;
 	long	neg;

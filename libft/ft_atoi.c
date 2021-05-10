@@ -6,7 +6,7 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 11:33:02 by epalomak          #+#    #+#             */
-/*   Updated: 2021/03/15 22:12:15 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/26 16:49:34 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	ft_atoi(const char *str)
 
 	r = 0;
 	n = 1;
-	while (*str == ' ' || *str == '\n' || *str == '\f' || *str == '\r' ||
-		*str == '\t' || *str == '\v')
+	while (*str == ' ' || *str == '\n' || *str == '\f' || *str == '\r'
+		|| *str == '\t' || *str == '\v')
 		str++;
 	if (*str == '-')
 	{

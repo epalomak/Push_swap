@@ -6,7 +6,7 @@
 #    By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/22 14:07:01 by epalomak          #+#    #+#              #
-#    Updated: 2021/03/15 21:27:16 by epalomak         ###   ########.fr        #
+#    Updated: 2021/05/07 17:47:41 by epalomak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ all: $(NAME)
 $(NAME):
 	@make -C printf
 	@cp $(PRINTF) $(NAME)
-	@gcc -c $(FLAGS) $(SRC) 
+	@gcc -c $(FLAGS) $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@echo "library created" 
 

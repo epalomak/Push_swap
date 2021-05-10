@@ -6,13 +6,13 @@
 /*   By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/05 13:17:54 by epalomak          #+#    #+#             */
-/*   Updated: 2021/03/17 13:48:49 by epalomak         ###   ########.fr       */
+/*   Updated: 2021/04/29 16:17:44 by epalomak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	read_inst(t_ps *ps)
+static	void	read_inst(t_ps *ps)
 {
 	char	*line;
 
@@ -21,24 +21,24 @@ void	read_inst(t_ps *ps)
 		if (ft_strcmp(line, "sa") == 0 || ft_strcmp(line, "sb") == 0 ||
 		ft_strcmp(line, "sr") == 0)
 			swap(ps, line);
-		if (ft_strcmp(line, "pa") == 0 || ft_strcmp(line, "pb") == 0)
+		else if (ft_strcmp(line, "pa") == 0 || ft_strcmp(line, "pb") == 0)
 			push(ps, line);
-		if (ft_strcmp(line, "ra") == 0 || ft_strcmp(line, "rb") == 0 ||
+		else if (ft_strcmp(line, "ra") == 0 || ft_strcmp(line, "rb") == 0 ||
 		ft_strcmp(line, "rr") == 0)
 			rotate(ps, line);
-		if (ft_strcmp(line, "rra") == 0 || ft_strcmp(line, "rrb") == 0 ||
+		else if (ft_strcmp(line, "rra") == 0 || ft_strcmp(line, "rrb") == 0 ||
 		ft_strcmp(line, "rrr") == 0)
 			rev_rotate(ps, line);
-		//else
-		//{
-		//	free(line);
-		//	display_errors();
-		//}
+		else if (ft_strcmp(line, "\n") != 0)
+		{
+			free(line);
+			display_errors();
+		}
 		free(line);
 	}
 }
 
-int		main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	int		i;
 	t_ps	*ps;

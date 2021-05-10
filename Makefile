@@ -6,22 +6,21 @@
 #    By: epalomak <epalomak@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/05 13:18:04 by epalomak          #+#    #+#              #
-#    Updated: 2021/02/24 11:24:26 by epalomak         ###   ########.fr        #
+#    Updated: 2021/05/07 17:05:24 by epalomak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC_C = ./src/check_stack.c ./src/get_numbers.c ./src/handle_commands.c \
-./src/checker_main.c ./src/helper.c 
+./src/checker_main.c 
 
 SRC_PS = ./src/check_stack.c ./src/get_numbers.c ./src/handle_commands.c \
-./src/push_swap.c ./src/sort.c ./src/sort_helper.c ./src/helper.c \
-./src/sort_2.c ./src/sort_helper_2.c ./src/sort_500.c
+./src/push_swap.c ./src/sort.c ./src/sort_helper.c  ./src/sort_500.c
 
 OBJ_C = check_stack.o get_numbers.o handle_commands.o \
-checker_main.o helper.o
+checker_main.o
 
 OBJ_PS = check_stack.o get_numbers.o handle_commands.o push_swap.o sort.o \
-sort_helper.o helper.o sort_2.o sort_helper_2.o sort_500.o
+sort_helper.o sort_500.o
 
 FLAGS = -Wall -Wextra -Werror
 
