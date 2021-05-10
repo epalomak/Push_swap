@@ -1,6 +1,6 @@
 # Push_swap
-Simple sorting algorithm using two stacks and specific predetermined operations
-the operations are:
+Simple sorting algorithm using two stacks and specific predetermined operations,
+which are:
 - sa    swap the first 2 elements at the top of stack a
 - sb    swap the first 2 elements at the top of stack b
 - ss    do sa and sb
